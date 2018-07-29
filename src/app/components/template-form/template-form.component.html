@@ -1,0 +1,72 @@
+<form novalidate #f='ngForm' (ngSubmit)="onSubmit()">
+  <fieldset ngModelGroup="name">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text"
+             class="form-control"
+             name="firstName" ngModel required>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text"
+            required
+             class="form-control"
+             name="lastname" ngModel>
+    </div>
+  </fieldset>
+
+  <!-- <div class="form-group"
+  [ngClass]="{
+    'has-danger': f.form.controls.email?.invalid && (f.form.controls.email?.dirty || f.form.controls.email?.touched),
+    'has-success':f.form.controls.email?.valid && (f.form.controls.email?.dirty || f.form.controls.email?.touched)
+}">
+    <label>Email</label>
+    <input type="email"
+           class="form-control"
+           name="email"
+           required
+           [(ngModel)]="model.email"
+           pattern="[^ @]*@[^ @]*"
+           >
+           
+  <pre>Valid? {{ f.form.controls.email?.valid }}</pre>
+  <pre>Dirty? {{ f.form.controls.email?.dirty }}</pre>
+  <pre>Touched? {{ f.form.controls.email?.touched }}</pre>
+  </div> -->
+
+  <!-- with #email instance -->
+  <div class="form-group"
+  [ngClass]="{
+    'has-danger': email.invalid && (email.dirty || email.touched),
+    'has-success':email.valid && (email.dirty || email.touched)
+}">
+    <label>Email</label>
+    <input type="email"
+           class="form-control"
+           name="email"
+           required
+           [(ngModel)]="model.email"
+           pattern="[^ @]*@[^ @]*"
+           #email = "ngModel">
+           
+  <pre>Valid? {{ email.valid }}</pre>
+  <pre>Dirty? {{ email.dirty }}</pre>
+  <pre>Touched? {{ email.touched }}</pre>
+  </div>
+
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password"
+           class="form-control" name="password" ngModel required>
+  </div>
+
+  <div class="form-group">
+    <label>Language</label>
+    <select class="form-control" name="language" ngModel required>
+      <option *ngFor='let lang of langs' value="{{lang}}">{{lang}}</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+</form>
+<pre>{{f.value |json}}</pre>

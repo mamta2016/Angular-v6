@@ -1,0 +1,34 @@
+* What are Streams?
+Streams are a sequence of values over time, that’s it.
+ex. [0,1,2,3,4]
+
+* What is Reactive Programming?
+ Reactive Programming = Streams + Operations
+
+* What is Observable
+Observables is a new primitive type which acts as a blueprint for how we want to create streams, 
+subscribe to them, react to new values, and combine streams together to build new ones.
+
+* Where we can use Observable in Angular?
+
+There are a few places in Angular where reactive programming and observables are in use.
+EventEmitter
+Under the hood this works via Observables.
+HTTP
+We’ve not covered this yet but HTTP requests in Angular are all handled via Observables.
+Forms
+Reactive forms in Angular expose an observable, a stream of all the input fields in the form combined.
+
+* What is pipe
+Pipes are used to transform data, when we only need that data transformed in a template.
+
+* when to use async pipe
+when we are using async pipe no need to subscribe in observable and no need to use than for promise.
+
+*How to use acync pipe with promises and observable
+
+What is elvis operater.
+"?" sign is called elvis operater, if we are using this operater then data will we check left first,
+ if left side is null or undefine then it will not check right else check right.
+ it prevent us from error.
+

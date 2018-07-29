@@ -1,0 +1,50 @@
+<div class="card card-block">
+  <h4 class="card-title">CurrencyPipe</h4>
+  <div class="card-text">
+    <p >{{ 1234.56 | currency:'CAD' }}</p>
+    <p >{{ 1234.56 | currency:'CAD': true }}</p>
+    <p >{{ 1234.56 | currency:'CAD':'symbol'}}</p>
+  </div>
+</div>
+<div class="card card-block">
+  <h4 class="card-title">DatePipe </h4>
+  <div class="card-text">
+    <p >{{ dateVal | date: 'd/m/y' }}</p>
+  </div>
+</div>
+<div class="card card-block">
+  <h4 class="card-title">DecimalPipe</h4>
+  <div class="card-text">
+    <p >{{ 4.566776867 | number:'3.1-2' }}</p>
+  </div>
+</div>
+<div class="card card-block">
+  <h4 class="card-title">JsonPipe</h4>
+  <div class="card-text">
+    <p >{{ jsonVal | json}}</p>
+  </div>
+</div>
+<div class="card card-block">
+  <h4 class="card-title">LowerCase/UpperCase Pipe</h4>
+  <div class="card-text">
+    <p >{{ 'jsonVal' | lowercase}}</p>
+    <p >{{ 'jsonVal' | uppercase}}</p>
+  </div>
+</div>
+<div class="card card-block">
+  <h4 class="card-title">PercentPipe</h4>
+  <div class="card-text">
+    <p >{{ 0.585478758766967 | percent:'2.1-2'}}</p>
+  </div>
+</div>
+<div class="card card-block">
+  <h4 class="card-title">SlicePipe</h4>
+  <div class="card-text">
+    <p >{{ sliceVal | slice:1:5}}</p>
+    <ul>
+      <li *ngFor='let val of sliceVal | slice: 2:-2'>
+        {{val}}
+      </li>
+    </ul>
+  </div>
+</div>

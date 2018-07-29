@@ -1,0 +1,57 @@
+
+<div class="card card-block" *ngFor="let joke of jokes" [appCcCardHover]="{querySelector:'p'}">
+  <h4 class="card-title">{{joke.setup}}</h4>
+  <!-- <p class="card-text" [hidden]="joke.hide">{{joke.punchline}}</p> -->
+  <p class="card-text borderColor" [style.display]="'none'">{{joke.punchline}}</p>
+  <!-- <ng-content select='h2'></ng-content> -->
+    <button class="btn btn-primary" (click)="toggle(joke)">Tell Me</button>
+  <!-- <a class="btn btn-primary" (click)="toggle(joke)">Tell Me</a> -->
+</div>
+<button type="button"
+        class="btn btn-success"
+        (click)="addJoke()">Add Joke
+</button>
+<button type="button"
+        class="btn btn-danger"
+        (click)="deleteJoke()">Clear Jokes
+</button>
+<h4>ngFor and ngSwitch directive </h4>
+<ul *ngFor="let person of people" [ngSwitch]="person.country">
+    <li *ngSwitchCase="'UK'" class="text-success">{{ person.name }} ({{ person.country }})
+    </li>
+    <li *ngSwitchCase="'USA'" class="text-primary">{{ person.name }} ({{ person.country }})
+    </li>
+    <li *ngSwitchCase="'HK'" class="text-danger">{{ person.name }} ({{ person.country }})
+    </li>
+    <li *ngSwitchDefault class="text-warning">{{ person.name }} ({{ person.country }})
+    </li>
+</ul>
+<h4>ngStyle directive</h4>
+<ul>
+    <!-- <li  *ngFor="let person of people" [ngSwitch]="person.country" [ngStyle]="{'background-color': getColor(person.country)}"> -->
+    <li *ngFor="let person of people" [ngSwitch]="person.country" [style.color]='getColor(person.country)' [ngStyle]="{'font-size.px': 25}">
+        {{ person.name }} ({{ person.country }})
+    </li>
+</ul>
+<h4>ngClass directive</h4>
+<ul>
+    <!-- <li  *ngFor="let person of people" [ngSwitch]="person.country" [ngStyle]="{'background-color': getColor(person.country)}"> -->
+    <li *ngFor="let person of people" [class.text-success]="person.country !='UK'">
+        {{ person.name }} ({{ person.country }})
+    </li>
+</ul>
+<h4>ngNonBindable directive</h4>
+<ul>
+    <!-- <li  *ngFor="let person of people" [ngSwitch]="person.country" [ngStyle]="{'background-color': getColor(person.country)}"> -->
+    <li *ngFor="let person of people" [class.text-success]="person.country !='UK'" ngNonBindable>
+        {{ person.name }} ({{ person.country }})
+    </li>
+</ul>
+<h4>ngFor ngFOrOf directive</h4>
+<template ngFor let-person [ngForOf]='people'>
+    <ul>
+        <li>
+            {{ person.name }} ({{ person.country }})
+        </li>
+    </ul>
+</template>

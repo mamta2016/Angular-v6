@@ -1,0 +1,8 @@
+.card{
+    margin: 10px;
+}
+.borderColor{
+    font-size: 25px !important;
+    background-color: deeppink !important;
+    color: whitesmoke;
+}
