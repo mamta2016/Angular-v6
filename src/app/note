@@ -25,10 +25,23 @@ Pipes are used to transform data, when we only need that data transformed in a t
 * when to use async pipe
 when we are using async pipe no need to subscribe in observable and no need to use than for promise.
 
-*How to use acync pipe with promises and observable
+* How to use acync pipe with promises and observable
 
 What is elvis operater.
 "?" sign is called elvis operater, if we are using this operater then data will we check left first,
  if left side is null or undefine then it will not check right else check right.
  it prevent us from error.
+
+* Injectors
+
+* Unit Testing
+ jasmin and karma
+
+====================
+
+* built-in validators in angular form(model driven and template).
+required
+maxlength
+minlength   
+pattern
 

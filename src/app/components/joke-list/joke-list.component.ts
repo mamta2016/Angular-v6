@@ -95,5 +95,9 @@ export class JokeListComponent implements OnInit {
   deleteJoke() {
     this.jokes = []
   }
+  ngOnDestroy() {
+      this.jokes = []
+      console.log("ngOnDestroy");
+    }
 }
 

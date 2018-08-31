@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-joke',
@@ -7,9 +7,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JokeComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+    @Input('joke') data: any;
+  
+    constructor() {
+      console.log(`new - data is ${this.data}`);
+    }
+  
+    ngOnChanges() {
+      console.log(`ngOnChanges - data is ${this.data}`);
+    }
+  
+    ngOnInit() {
+      console.log(`ngOnInit  - data is ${this.data}`);
+    }
+  
+    ngDoCheck() {
+      console.log("ngDoCheck")
+    }
+  
+    ngAfterContentInit() {
+      console.log("ngAfterContentInit");
+    }
+  
+    ngAfterContentChecked() {
+      console.log("ngAfterContentChecked");
+    }
+  
+    ngAfterViewInit() {
+      console.log("ngAfterViewInit");
+    }
+  
+    ngAfterViewChecked() {
+      console.log("ngAfterViewChecked");
+    }
+  
+    ngOnDestroy() {
+      console.log("ngOnDestroy");
+    }
   }
-
-}

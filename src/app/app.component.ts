@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { JokeListComponent } from './components/joke-list/joke-list.component';
 import { Human } from './human';
 import * as Rx from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,20 +18,18 @@ export class AppComponent{
   imageUrl:string = '';
  @ViewChild(JokeListComponent) jokeListView: JokeListComponent
  @ViewChildren(JokeListComponent) jokelistChildern: QueryList<JokeListComponent>;
-  constructor(){
+  constructor(public router: Router){
     
   }
 
   //distructuring
 
-  
-
-  // ngOnChanges() {
-  //   console.log(`ngOnChanges - data is ${this.data}`);
-  // }
+  ngOnChanges() {
+    console.log(`ngOnChanges - data is ${this.data}`);
+  }
   
   ngOnInit() {
-    // console.log(`ngOnInit  - data is ${this.data}`);
+    console.log(`ngOnInit  - data is ${this.data}`);
     // let list:JokeListComponent[] = this.jokelistChildern.toArray();
     // console.log(list);
 
@@ -121,5 +120,13 @@ export class AppComponent{
   // viewcontent(){
   //  return this.jokeListView.addJoke();
   // }
-  
+  navigateTo(event){
+    if(event.currentTarget.innerText == "Template Page"){
+      this.router.navigateByUrl('template');
+    }else if(event.currentTarget.innerText == "Model Driven Page"){
+      this.router.navigateByUrl('modelDriven');
+    }else{
+      this.router.navigateByUrl('jokeList');
+    }
+  }
 }

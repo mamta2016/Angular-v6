@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '../../../../node_modules/@angular/forms';
+import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from "rxjs/operators";
 
 @Component({
