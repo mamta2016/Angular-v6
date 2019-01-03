@@ -18,6 +18,7 @@ export class AppComponent{
   imageUrl:string = '';
  @ViewChild(JokeListComponent) jokeListView: JokeListComponent
  @ViewChildren(JokeListComponent) jokelistChildern: QueryList<JokeListComponent>;
+  name: any;
   constructor(public router: Router){
     
   }
@@ -26,10 +27,12 @@ export class AppComponent{
 
   ngOnChanges() {
     console.log(`ngOnChanges - data is ${this.data}`);
+    // console.log(`ngOnChanges - name is ${this.name}`);
   }
   
   ngOnInit() {
     console.log(`ngOnInit  - data is ${this.data}`);
+    console.log(`ngOnInit  - name is ${this.name}`);
     // let list:JokeListComponent[] = this.jokelistChildern.toArray();
     // console.log(list);
 
@@ -128,5 +131,8 @@ export class AppComponent{
     }else{
       this.router.navigateByUrl('jokeList');
     }
+  }
+  onNameChange(){
+    console.log(this.name);
   }
 }
